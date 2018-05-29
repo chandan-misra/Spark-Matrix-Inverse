@@ -1,2 +1,2 @@
 # Spark-Matrix-Inverse
-Distributed Matrix Inverse using Spark
+We present a new fast and scalable distributed matrix inversion algorithm on Apache Spark, called SPIN, based on Strassen's matrix inversion algorithm. The underlying technique is based on an algorithm suggested by Strassen in 1969 which requires only 6 matrix multiplications in each recursion level. We have seen experimentally that SPIN has a good scalability with increasing matrix size enabling us to invert 16384x16384 matrix with 37% less wall clock time than its nearest baseline based on LU decomposition.
