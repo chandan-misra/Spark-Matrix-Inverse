@@ -66,7 +66,7 @@ public class StrassenInverse {
 
 	public static BlockMatrix inverse(BlockMatrix A, JavaSparkContext ctx, int size, int blockSize) {
 		if (size == 1) {
-			System.out.println("Leaf");
+			//System.out.println("Leaf");
 			final Broadcast<Integer> bblockSize = ctx.broadcast(blockSize);
 			JavaRDD<Tuple2<Tuple2<Object, Object>, Matrix>> inv_A = A.blocks().toJavaRDD().map(
 					new Function<Tuple2<Tuple2<Object, Object>, Matrix>, Tuple2<Tuple2<Object, Object>, Matrix>>() {
@@ -92,7 +92,7 @@ public class StrassenInverse {
 			return blockAInv;
 
 		} else {
-			System.out.println("Non-Leaf");
+			//System.out.println("Non-Leaf");
 			size = size / 2;
 			JavaPairRDD<String, Tuple2<Tuple2<Object, Object>, Matrix>> pairRDD = StrassenInverse.breakMat(A, ctx,
 					size);
